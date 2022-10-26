@@ -1,5 +1,6 @@
 import 'package:daily_meal/categories_screen.dart';
 import 'package:flutter/material.dart';
+import 'category_meals_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,22 +20,27 @@ class MyApp extends StatelessWidget {
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-          bodyText1: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-          bodyText2: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-          headline6: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-          subtitle1: const TextStyle(
-            fontSize: 20,
-            fontFamily: 'RobotoCondensed',
-            fontWeight: FontWeight.bold,
-          ),
-          subtitle2: const TextStyle(
-            fontSize: 16,
-            fontFamily: 'RobotoCondensed',
-            fontWeight: FontWeight.normal,
-          ),
-        ),
+              bodyText1: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              bodyText2: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              headline6: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              subtitle1: const TextStyle(
+                fontSize: 20,
+                fontFamily: 'RobotoCondensed',
+                fontWeight: FontWeight.bold,
+              ),
+              subtitle2: const TextStyle(
+                fontSize: 16,
+                fontFamily: 'RobotoCondensed',
+                fontWeight: FontWeight.normal,
+              ),
+            ),
       ),
-      home: CategoriesScreen(),
+      // home: CategoriesScreen(),
+      routes: {
+        '/':(ctx) => CategoriesScreen(),
+        CategoryMealsScreen.routName: (ctx) => CategoryMealsScreen(),
+        // '/category-meals': (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
@@ -56,9 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
@@ -67,7 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-
     );
   }
 }
