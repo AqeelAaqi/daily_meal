@@ -1,5 +1,6 @@
 import 'package:daily_meal/screens/categories_screen.dart';
 import 'package:daily_meal/screens/favorites_screen.dart';
+import 'package:daily_meal/widgets/main_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class _TabsScreen extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]['title']),
       ),
+      drawer: MainDrawer(),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
